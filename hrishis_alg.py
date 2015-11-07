@@ -90,15 +90,13 @@ def routePlanner(locations, start, end):
 	s = ""
 	e = ""
 	if isinstance(start, str):
-		tmp = add2latlon(start)
-		s = "lat:%f,lon:%f" % (tmp[1][0],tmp[1][1])
+		s = start
 	else:
-		s = "lat:%f,lon:%f" % (start[0],start[1])
+		s = latlon2add(start[0],start[1])[0]
 	if isinstance(end, str):
-		tmp = add2latlon(end)
-		e = "lat:%f,lon:%f" % (tmp[1][0],tmp[1][1])
+		e = end
 	else:
-		e = "lat:%f,lon:%f" % (end[0],end[1])
+		e = latlon2add(end[0],end[1])[0]
 
 	api_string = "https://maps.googleapis.com/maps/api/directions/json?key=%s&origin=%s&destination=%s" % (api_key,s,e)
 
@@ -109,14 +107,13 @@ def routePlanner(locations, start, end):
 
 	for location in locations:
 		if isinstance(location, str):
-			tmp = add2latlon(location)
-			api_string += "|lat:%f,lon:%f" % (tmp[1][0],tmp[1][1])
+			api_string += "|%s" % location
 		else:
-			api_string += "|lat:%f,lon:%f" % (location[0],location[1])
+			api_string += "|" % (latlon2add(locatiom[0],location[1])[0])
 
 	return call_api(api_string)
 
 
 ##Testing Code##
 if __name__ == '__main__':
-	print(add2latlon("Toronto,Canada")[1][1])
+	print(routePlanner([],"Yale-NUS College, Singapore","Anglo-Chinese School (Independent), Singapore"))
