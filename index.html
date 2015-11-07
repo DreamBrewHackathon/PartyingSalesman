@@ -2,33 +2,6 @@
 <body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery </script>
-
-<a href='/login'><img src='http://i.stack.imgur.com/4iiKJ.png' />Click here</a>
- or on the button for Facebook Login, 
- <a href='/tokenme'>Here</a> to retrieve your token, and 
- <a href='/getDetails/Rome'>Here</a> with some argument to use the Place API.
- <br />
- <br />
- <script type=text/javascript>
-  $(function() {
-    $('a#calculate').bind('click', function() {
-      $.getJSON('//localhost:5000/_add_numbers', {
-        a: $('input[name="a"]').val(),
-        b: $('input[name="b"]').val()
-      }, function(data) {
-        $("#result").text(data.result);
-      });
-      return false;
-    });
-  });
-</script>
-<h1>jQuery Example</h1>
-<p><input type=text size=5 name=a> +
-   <input type=text size=5 name=b> =
-   <span id='result'> ? </span>
-<p><a href=# id='calculate'>calculate server side</a>
-
-
 <h1>Accelerometer Stuffs</h1>
 
 <h3><div id="textDiv"></div></h3>
