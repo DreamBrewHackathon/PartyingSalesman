@@ -76,7 +76,17 @@ def latlon2add(lat, lon):
 	return geolocator.reverse(latlon)
 
 def routePlanner(locations, start, end):
-	
+	"""
+	route Planning function.
+
+	Args:
+		locations (list of Strings, or list of tuples (lat,lon)) : waypoints to hit on the way.
+		start (string or tuple(lat,lon)) : Origin.
+		end (string or tuple(lat,lon)) : Destination.
+
+	Returns
+		Directions (JSON): Driving directions for the entire route.
+	"""
 	s = ""
 	e = ""
 	if isinstance(start, str):
